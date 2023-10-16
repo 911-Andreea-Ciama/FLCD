@@ -1,4 +1,14 @@
-        Hash Table data structure
+
+ Hash Table data structure
 
 Properties: table (array) and size (int).
 
+init(self, size):
+	Description: The constructor for the SymbolTable takes as an input parameter an integer: "size", which represents the size of the symbol table. The table is initialized the given size with empty lists for each "position", ranging from 0 to size.
+	Input: int, the size of the table
+	Output: none
+
+__hash(self, key):
+	Description: The private hashing function takes a keyword and computed the hashing value as the sum of the ascii code of the lowercase letters found in the given keyword modulo the size of the table.
+	Input: string, the keyword
+	Output: int, the position where the keyword will be stored in the hashing table
