@@ -1,0 +1,4 @@
+        Hash Table data structure
+
+Properties: table (array) and size (int).
+
