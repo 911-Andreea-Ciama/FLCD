@@ -1,9 +1,7 @@
 class HashTable:
     def __init__(self, size):
-
         self.size = size
         self.table = []
-
         for index in range(size):
             self.table.append([])
 
@@ -14,25 +12,29 @@ class HashTable:
         sum = 0
         for char in str(key):
             sum += ord(char.lower())
-        return sum % self.size
+        hash_value = sum % self.size
+        return hash_value, self.table[hash_value]
 
     def add(self, key):
-        hashValue = self.__hash(key)
-        if key not in self.table[hashValue]:
-            self.table[hashValue].append(key)
+        hashValue, index = self.__hash(key)
+        if key not in index:
+            index.append(key)
 
     def remove(self, key):
-        hashvalue = self.__hash(key)
-        if key in self.table[hashvalue]:
-            self.table[hashvalue].remove(key)
+        hash_value, index = self.__hash(key)
+        if key in index:
+            index.remove(key)
 
     def contains(self, key):
-        hashValue = self.__hash(key)
-        return key in self.table[hashValue]
+        hashValue, index = self.__hash(key)
+        return key in index
 
-    def getIndex(self,value):
-        key = self.__hash(value)
-        return self.table[key].index(value)
+    def getIndex(self, value):
+        hashValue, index = self.__hash(value)
+        if value in index:
+            return index.index(value)
+        else:
+            return -1
 
     def __str__(self):
         string = ""
@@ -44,4 +46,3 @@ class HashTable:
             string = string + "\n"
 
         return string
-
