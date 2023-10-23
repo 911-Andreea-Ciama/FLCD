@@ -1,0 +1,14 @@
+prog {
+a (int), b (int), c+ (int); -- an identifier should be a sequence of letters and  digits
+read(a);
+read(b);
+read(c);
+smallest (int) = a;
+if smallest >> b { --used >> instead of >
+	smallest = b;
+}
+if smallest > c {
+	smallest = c;
+}
+print(smallest);
+}
